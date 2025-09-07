@@ -119,10 +119,11 @@ async def embed(ctx, embedTitle, embedDescription, embedURL, embedHexColorCode, 
                 await ctx.send(f'Error: {result["error"]}')
 
 @bot.command()
-async def ping(ctx):
+async def sendEmbed(ctx):
     redEmbed = "GENERATED_REDEMBED_LINK_HERE" # Embed Link To Display
 
     await ctx.message.delete() # Deletes the Message that Executes the Command
     await ctx.send(redEmbed) # Send Embed
 
 bot.run(token) # Run the Token / Start the Bot.
+
