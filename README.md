@@ -2,7 +2,7 @@
 <p align="center">
   <img src="https://redsmods.com/assets/ic_redmods.png" alt="Project Logo" />
   <p align="center">https://redsmods.com</p>
-  <h2>selfBot Guide | Python | discord.py-self</h2>
+  <h2>selfBot Guide | Python | discord.py-self | redEmbed</h2>
   <hr style="border: none; border-top: 1px solid white;"/>
 </p>
 
