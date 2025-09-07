@@ -93,4 +93,36 @@ async def ping(ctx):
 async def hi(ctx):
     await ctx.send(f'Hello, {ctx.author.name}! How can I assist you today?') # ctx.author.name gets the name of the message author.
 
+# redEmbed / Send Embeds
+
+@bot.command()
+async def embed(ctx, embedTitle, embedDescription, embedURL, embedHexColorCode, hidden, embedImage):
+    # Prepare the data to send
+    data = {
+        'embedTitle': embedTitle,
+        'embedDescription': embedDescription,
+        'embedURL': embedURL,
+        'embedHexColorCode': embedHexColorCode,
+        'hidden': hidden,  # Include the hidden parameter
+        'embedImage': embedImage
+            }
+                        
+            # Send a POST request to the PHP backend
+            response = requests.post('https://redsmods.com/api/redEmbed.php', data=data)
+                        
+            # Parse the JSON response
+            result = response.json()
+                        
+            if 'url' in result:
+                await ctx.send(f'Here is your embed link: {result["url"]}')
+            else:
+                await ctx.send(f'Error: {result["error"]}')
+
+@bot.command()
+async def ping(ctx):
+    redEmbed = "GENERATED_REDEMBED_LINK_HERE" # Embed Link To Display
+
+    await ctx.message.delete() # Deletes the Message that Executes the Command
+    await ctx.send(redEmbed) # Send Embed
+
 bot.run(token) # Run the Token / Start the Bot.
